@@ -1,48 +1,328 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: #f0f0f0;
+  background-color: #2c3e50;
+  font-family: 'Roboto', sans-serif;
+  color: #ecf0f1;
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+  font-size: 2.5rem;
+  color: #ecf0f1;
+  margin-bottom: 1.5rem;
   text-align: center;
-  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(41, 128, 185, 0.3);
+  background-color: #3c8ce7;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.uploadContainer {
+  margin-bottom: 2rem;
+}
+
+.uploadLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #3498db;
+  color: #ecf0f1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.uploadLabel:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
 }
 
 .fileInput {
-  margin: 2rem 0;
-  padding: 0.5rem;
-  border: 2px solid #0070f3;
-  border-radius: 5px;
-  font-size: 1rem;
+  display: none;
 }
 
-.bookContainer {
-  margin-top: 2rem;
+.loader {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
+}
+
+.spinner {
+  border: 4px solid rgba(236, 240, 241, 0.3);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-top-color: #e74c3c;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.bookContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* max-width: 1000px; */
+  margin: 0 auto;
 }
 
 .flipBook {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background-color: #34495e;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 100%;
 }
 
-.page {
-  background-color: white;
-  border: 1px solid #ddd;
-  overflow: hidden;
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.controlButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #e74c3c;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.controlButton:hover:not(:disabled) {
+  color: #2bc03f;
+  transform: scale(1.1);
+}
+
+.controlButton:disabled {
+  color: #7f8c8d;
+  cursor: not-allowed;
 }
 
 .pageInfo {
-  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 1rem;
-  color: #666;
+  color: #ecf0f1;
+  font-weight: bold;
+  background-color: #16a085;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.page {
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pageImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 
+.container {
+  min-height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1a2e;
+  font-family: 'Courier New', Courier, monospace;
+  color: #e94560;
+} */
+/* 
+.title {
+  font-size: 2.5rem;
+  color: #16213e;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(233, 69, 96, 0.3);
+  background-color: #e94560;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.uploadContainer {
+  margin-bottom: 2rem;
+}
+
+.uploadLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #0f3460;
+  color: #e94560;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.uploadLabel:hover {
+  background-color: #16213e;
+  transform: translateY(-2px);
+}
+
+.fileInput {
+  display: none;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.spinner {
+  border: 4px solid rgba(233, 69, 96, 0.3);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-top-color: #e94560;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.bookContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.flipBook {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background-color: #16213e;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 100%;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.controlButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #e94560;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.controlButton:hover:not(:disabled) {
+  color: #ff6b6b;
+  transform: scale(1.1);
+}
+
+.controlButton:disabled {
+  color: #4a4e69;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: #e94560;
+  font-weight: bold;
+  background-color: #0f3460;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.page {
+  background-color: #0f3460;
+  border: 1px solid #16213e;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.pageImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+} */
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .flipBook {
+    width: 95vw !important;
+    height: auto !important;
+    aspect-ratio: 3 / 4;
+  }
+
+  .pageInfo {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .flipBook {
+    width: 80vw !important;
+    height: 60vh !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .flipBook {
+    width: 70vw !important;
+    height: 70vh !important;
+  }
 }
